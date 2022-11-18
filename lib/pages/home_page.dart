@@ -1,9 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:weather_app/repository/weather_repository.dart';
-import 'package:weather_app/services/weather_api_services.dart';
+import 'package:weather_app/providers/weather_provider.dart';
 import "package:http/http.dart" as http;
+
+import 'package:provider/provider.dart';
 
 class Homepage extends StatefulWidget {
   Homepage({Key? key}) : super(key: key);
@@ -15,18 +14,15 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   void initState() {
-    super.initState();
     _fetchWeather();
-  }
-
-  _fetchCity() {
-    WeatherApiServices(httpClient: http.Client()).getCity("London");
+    super.initState();
+    
   }
 
   _fetchWeather() {
-    WeatherRepository(
-            weatherApiServices: WeatherApiServices(httpClient: http.Client()))
-        .fetchWeather("London");
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<WeatherProvider>().fetchWeather("London");
+    });
   }
 
   @override
