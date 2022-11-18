@@ -10,15 +10,15 @@ class WeatherRepository {
     required this.weatherApiServices,
   });
 
-  Future<Wheather> fetchWeather(String cityName) async {
+  Future<Weather> fetchWeather(String cityName) async {
     try {
       final List<double> latLon = await weatherApiServices.getCity(cityName);
       print("city : $latLon");
 
-      final Wheather wheather = await weatherApiServices.getWeather(latLon);
-      print("weather : $wheather");
+      final Weather weather = await weatherApiServices.getWeather(latLon);
+      print("weather : $Weather");
 
-      return wheather;
+      return weather;
     } on WeatherException catch (e) {
       throw CustomError(errMsg: e.message);
     } catch (e) {
