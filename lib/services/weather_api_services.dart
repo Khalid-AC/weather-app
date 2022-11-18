@@ -54,7 +54,7 @@ class WeatherApiServices {
     }
   }
 
-  Future<Wheather> getWeather(List<double> latLon) async {
+  Future<Weather> getWeather(List<double> latLon) async {
     /*final Uri uri = Uri(
         scheme: "https",
         host: kHost,
@@ -77,7 +77,7 @@ class WeatherApiServices {
 
       final weatherJson = json.decode(response.body);
 
-      final Wheather weather = Wheather.fromjson(weatherJson);
+      final Weather weather = Weather.fromjson(weatherJson);
 
       print(weather);
 
