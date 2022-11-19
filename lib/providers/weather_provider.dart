@@ -71,10 +71,13 @@ class WeatherProvider with ChangeNotifier {
       _state = _state.copyWith(
           weatherStatus: WeatherStatus.loaded, weather: weather);
 
+      print("");
+      print("");
       print(_state);
       notifyListeners();
     } on CustomError catch (e) {
       _state = _state.copyWith(weatherStatus: WeatherStatus.error, error: e);
+      print(_state);
       notifyListeners();
     }
   }
