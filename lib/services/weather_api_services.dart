@@ -28,7 +28,7 @@ class WeatherApiServices {
     
     try {
       final http.Response response = await http.get(Uri.parse(
-          "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=1&appid=$apiKey"));
+          "http://api.openweathermap.org/geo/1.0/direct?q=$cityName&limit=1&appid=$apiKey"));
 
       if (response.statusCode != 200) {
         throw httpErrorHandler(response);
@@ -79,7 +79,7 @@ class WeatherApiServices {
 
       final Weather weather = Weather.fromjson(weatherJson);
 
-      print(weather);
+      
 
       return weather;
     } catch (e) {
