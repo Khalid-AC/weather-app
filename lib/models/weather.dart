@@ -6,12 +6,14 @@ class Weather extends Equatable {
   final int weatherId;
   final String weatherMain;
   final String weatherDescription;
+  final String cityName;
   final double mainTemp;
   final DateTime lastUpdated;
   const Weather({
     required this.weatherId,
     required this.weatherMain,
     required this.weatherDescription,
+    required this.cityName,
     required this.mainTemp,
     required this.lastUpdated,
   });
@@ -23,6 +25,7 @@ class Weather extends Equatable {
       weatherId,
       weatherMain,
       weatherDescription,
+      cityName,
       mainTemp,
       lastUpdated,
     ];
@@ -34,6 +37,7 @@ class Weather extends Equatable {
     int? weatherId,
     String? weatherMain,
     String? weatherDescription,
+    String? cityName,
     double? mainTemp,
     DateTime? lastUpdated,
   }) {
@@ -41,6 +45,7 @@ class Weather extends Equatable {
       weatherId: weatherId ?? this.weatherId,
       weatherMain: weatherMain ?? this.weatherMain,
       weatherDescription: weatherDescription ?? this.weatherDescription,
+      cityName: cityName ?? this.cityName,
       mainTemp: mainTemp ?? this.mainTemp,
       lastUpdated: lastUpdated ?? this.lastUpdated,
     );
@@ -55,6 +60,7 @@ class Weather extends Equatable {
         weatherId: json["weather"][0]["id"],
         weatherMain: json["weather"][0]["main"],
         weatherDescription: json["weather"][0]["description"],
+        cityName: json["name"],
         mainTemp: json["main"]["temp"],
         lastUpdated: DateTime.now());
   }
@@ -63,6 +69,7 @@ class Weather extends Equatable {
       weatherId: -1,
       weatherMain: "",
       weatherDescription: "",
+      cityName: "",
       mainTemp: 100.00,
       lastUpdated: DateTime(1970));
 }
