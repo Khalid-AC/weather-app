@@ -67,7 +67,7 @@ class WeatherApiServices {
 
     try {
       final http.Response response = await http.get(Uri.parse(
-          "https://api.openweathermap.org/data/2.5/weather?lat=${latLon[0]}&lon=${latLon[1]}&appid=$apiKey"));
+          "https://api.openweathermap.org/data/2.5/weather?lat=${latLon[0]}&lon=${latLon[1]}&units=metric&appid=$apiKey"));
 
         
 
