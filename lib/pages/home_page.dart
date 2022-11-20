@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/weather.dart';
 import 'package:weather_app/pages/search_page.dart';
+import 'package:weather_app/pages/settings_page.dart';
+import 'package:weather_app/providers/temp_settings_provider.dart';
 import 'package:weather_app/providers/weather_provider.dart';
 import "package:http/http.dart" as http;
 
@@ -56,35 +58,50 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white70,
+        //backgroundColor: Colors.white70,
         appBar: AppBar(
           title: const Text("Weather"),
           actions: [
             IconButton(
-                onPressed: () async {
-                  _city = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Searchpage();
-                      },
-                    ),
-                  );
+              onPressed: () async {
+                _city = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Searchpage();
+                    },
+                  ),
+                );
 
-                  if (_city != null) {
-                    context.read<WeatherProvider>().fetchWeather(_city!);
-                  }
-                  _city = null;
-                },
-                icon: const Icon(Icons.search))
+                if (_city != null) {
+                  context.read<WeatherProvider>().fetchWeather(_city!);
+                }
+                _city = null;
+              },
+              icon: const Icon(Icons.search),
+            ),
+
+            //
+            IconButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const Settingspage();
+                }));
+              },
+              icon: const Icon(Icons.settings),
+            ),
           ],
         ),
         body: _showWeather());
   }
 
-  String showTemperature(double? temperature) {
-    if (temperature == null) return "0";
-    return "${temperature.toStringAsFixed(2)} ℃";
+  String showTemperature(double temperature) {
+    final tempUnit = context.watch<TempSettingsProvider>().state.tempUnit;
+
+    if (tempUnit == TempUnit.celsius) {
+      return "${temperature.toStringAsFixed(2)} ℃";
+    }
+    return " ${((temperature * 9 / 5) + 32).toStringAsFixed(2)} ℉";
   }
 
   Widget showIcon(String icon) {
