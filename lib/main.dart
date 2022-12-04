@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       builder: (context,_) =>  MaterialApp(
         title: "Wheather app",
         debugShowCheckedModeBanner: false,
-        theme: context.watch<ThemeProvider>().state.appTheme == AppTheme.dark ? ThemeData.dark() : ThemeData.light(),
+        theme: context.watch<ThemeProvider>().state.appTheme == AppTheme.dark ? ThemeData.dark() : ThemeData.light().copyWith(primaryColorDark: Colors.teal),
         home: Homepage(),
       ),
     );
