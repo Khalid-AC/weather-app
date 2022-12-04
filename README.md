@@ -7,7 +7,7 @@
 <br>
 
 ## App Workflow
-<img src = "app_overview/workflow.png" height = "500">
+<img src = "app_overview/workflow.PNG" height = "500">
 
 <br>
 <br>
