@@ -7,8 +7,8 @@ class Weather extends Equatable {
   final String weatherMain;
   final String weatherDescription;
   final String cityName;
-  // final double maxTemp;
-  // final double minTemp;
+  final double maxTemp;
+  final double minTemp;
   final double mainTemp;
   final String icon;
   final DateTime lastUpdated;
@@ -17,8 +17,8 @@ class Weather extends Equatable {
     required this.weatherMain,
     required this.weatherDescription,
     required this.cityName,
-    // required this.maxTemp,
-    // required this.minTemp,
+    required this.maxTemp,
+    required this.minTemp,
     required this.mainTemp,
     required this.icon,
     required this.lastUpdated,
@@ -30,8 +30,8 @@ class Weather extends Equatable {
         weatherMain: json["weather"][0]["main"],
         weatherDescription: json["weather"][0]["description"],
         cityName: json["name"],
-        // maxTemp: json["daily"]["temp"]["max"],
-        // minTemp: json["daily"]["temp"]["min"],
+        maxTemp: json["main"]["temp_max"],
+        minTemp: json["main"]["temp_min"],
         mainTemp: json["main"]["temp"],
         icon: json["weather"][0]["icon"],
         lastUpdated: DateTime.now());
@@ -43,8 +43,8 @@ class Weather extends Equatable {
       weatherDescription: "",
       cityName: "",
       mainTemp: 100.00,
-      // maxTemp: 100.00,
-      // minTemp: 100.00,
+      maxTemp: 100.00,
+      minTemp: 100.00,
       icon: "",
       lastUpdated: DateTime(1970));
 
@@ -56,8 +56,8 @@ class Weather extends Equatable {
       weatherMain,
       weatherDescription,
       cityName,
-      // maxTemp,
-      // minTemp,
+      maxTemp,
+      minTemp,
       mainTemp,
       icon,
       lastUpdated,
@@ -82,8 +82,8 @@ class Weather extends Equatable {
       weatherMain: weatherMain ?? this.weatherMain,
       weatherDescription: weatherDescription ?? this.weatherDescription,
       cityName: cityName ?? this.cityName,
-      // maxTemp: maxTemp ?? this.maxTemp,
-      // minTemp: minTemp ?? this.minTemp,
+      maxTemp: maxTemp ?? this.maxTemp,
+      minTemp: minTemp ?? this.minTemp,
       mainTemp: mainTemp ?? this.mainTemp,
       icon: icon ?? this.icon,
       lastUpdated: lastUpdated ?? this.lastUpdated,
