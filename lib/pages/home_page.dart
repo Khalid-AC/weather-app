@@ -118,7 +118,7 @@ class _HomepageState extends State<Homepage> {
 
     if (weatherState.weatherStatus == WeatherStatus.initial) {
       return const Center(
-          child: Text("Select a city", style: TextStyle(fontSize: 20.0)));
+          child: Text("Select a city", style: TextStyle(fontSize: 30.0)));
     }
 
     if (weatherState.weatherStatus == WeatherStatus.loading) {
@@ -128,7 +128,7 @@ class _HomepageState extends State<Homepage> {
     if (weatherState.weatherStatus == WeatherStatus.error &&
         weatherState.weather.cityName == "") {
       return const Center(
-          child: Text("Select a city", style: TextStyle(fontSize: 20.0)));
+          child: Text("Select a city", style: TextStyle(fontSize: 30.0)));
     }
 
     return ListView(
@@ -179,12 +179,12 @@ class _HomepageState extends State<Homepage> {
             Column(
               children: [
                 Text(
-                  showTemperature(weatherState.weather.mainTemp),
+                  showTemperature(weatherState.weather.maxTemp),
                   style: const TextStyle(fontSize: 16.0),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  showTemperature(weatherState.weather.mainTemp),
+                  showTemperature(weatherState.weather.minTemp),
                   style: const TextStyle(fontSize: 16.0),
                 ),
               ],
