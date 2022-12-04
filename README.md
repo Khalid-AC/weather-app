@@ -1,16 +1,24 @@
-# weather_app
+# Weather app
 
-A new Flutter project.
+#### Framework : Flutter
+#### API:
+#### State Management Solution : Provider
+<br>
+<br>
 
-## Getting Started
+## App Workflow
+<img src = "app_overview/workflow.png" height = "500">
 
-This project is a starting point for a Flutter application.
+<br>
+<br>
 
-A few resources to get you started if this is your first Flutter project:
+## App Overview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src = "app_overview/1.jpg" height = "500">
+<img src = "app_overview/5.jpg" height = "500">
+<img src = "app_overview/6.jpg" height = "500">
+<img src = "app_overview/4.jpg" height = "500">
+<img src = "app_overview/3.jpg" height = "500">
+<img src = "app_overview/2.jpg" height = "500">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
